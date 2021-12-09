@@ -1,5 +1,3 @@
-import java.nio.ByteBuffer;
-import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.zip.Adler32;
 import java.util.zip.CRC32;
@@ -11,7 +9,8 @@ public class CRC {
         // byte[][] test = {{1, 0, 0, 1}, {1, 0, 1, 1,}, {0, 0, 1, 0}, {0, 1, 0, 1}, {0, 1, 1, 0}};
         String [] inputs = {"Computer", "Network", "Ko", "Daeeun", "2017108246"};
 
-        byte bytes[] = inputs[0].getBytes();
+        byte[] bytes = inputs[3].getBytes();
+        System.out.println(Arrays.toString(bytes));
 
         System.out.println(getCRC32(bytes));
     }
@@ -24,7 +23,6 @@ public class CRC {
 
     // CRC-32
     public static long getCRC32(byte[] bytes) {
-
         Checksum crc = new CRC32();
         crc.update(bytes, 0, bytes.length);
         long calculated = crc.getValue();
