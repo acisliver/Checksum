@@ -7,8 +7,10 @@ public class CRC {
     public static void main(String[] args) {
 
         // byte[][] test = {{1, 0, 0, 1}, {1, 0, 1, 1,}, {0, 0, 1, 0}, {0, 1, 0, 1}, {0, 1, 1, 0}};
+        // 입력값
         String [] inputs = {"Computer", "Network", "Ko", "Daeeun", "2017108246"};
 
+        // String to byte array
         byte[] bytes = inputs[3].getBytes();
         System.out.println(Arrays.toString(bytes));
 
