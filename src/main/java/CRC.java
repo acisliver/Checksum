@@ -24,6 +24,24 @@ public class CRC {
         return null;
     }
 
+    // Internet Checksum
+    public static long getInternetChecksum(byte[] bytes) {
+        int length = bytes.length;
+        int i = 0;
+        long sum = 0;
+        while (length > 0) {
+            sum += (bytes[i++]&0xff) << 8;
+            if ((--length)==0) break;
+            sum += (bytes[i++]&0xff);
+            --length;
+        }
+
+        // 음수범위를 없애고
+        // Left값을 Right값에 더한 후
+        // 1의 보수
+        return (~((sum & 0xFFFF)+(sum >> 16)))&0xFFFF;
+    }
+
 
 
     // Fletcher-16 Checksum
